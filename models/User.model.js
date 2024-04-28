@@ -10,10 +10,35 @@ const userSchema = new Schema(
       lowercase: true,
       trim: true,
     },
+    username: {
+       type: String, 
+       required: true, 
+       unique: true 
+      },
+
     password: {
       type: String,
       required: [true, 'Password is required.'],
     },
+ 
+  drumKits: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'DrumKit',
+    },
+  ],
+  beatMakers: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'BeatMaker',
+    },
+  ],
+  combinedEntities: [
+    {
+       type: Schema.Types.ObjectId,
+       ref: 'BeatMakerAndDrumKit' 
+      }
+    ],
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`

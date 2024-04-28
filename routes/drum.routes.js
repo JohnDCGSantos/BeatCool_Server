@@ -5,7 +5,7 @@ router.get('/', async (req, res, next) => {
   try {
     console.log('Fetching pads...')
     const pads = await DrumPad.find()
-    console.log('Pads:', pads)
+    //console.log('Pads:', pads)
     res.json(pads)
   } catch (error) {
     console.error('Error fetching pads:', error)

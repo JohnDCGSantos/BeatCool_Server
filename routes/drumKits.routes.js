@@ -2,12 +2,14 @@
 const express = require('express')
 const router = express.Router()
 const DrumKit = require('../models/DrumKit.model')
+const { isAuthenticated } = require('../middlewares/jwt.middleware');
 
 // Route to create a new drum kit
 router.post('/', async (req, res) => {
   try {
-    const { name, drumPads } = req.body
-    const drumKit = new DrumKit({ name, drumPads })
+    const { name, drumPads, user } = req.body
+console.log('hehe',user)
+    const drumKit = new DrumKit({ name, drumPads,user })
     await drumKit.save()
     res.status(201).json(drumKit)
   } catch (error) {
@@ -19,6 +21,8 @@ router.post('/', async (req, res) => {
 // Route to get all drum kits
 router.get('/', async (req, res) => {
   try {
+    
+
     const drumKits = await DrumKit.find()
     res.json(drumKits)
   } catch (error) {

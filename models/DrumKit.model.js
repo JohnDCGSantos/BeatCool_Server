@@ -7,12 +7,18 @@ const drumKitSchema = new Schema({
     required: [true, 'name is required.'],
     trim: true,
   },
+  
   drumPads: [
     {
       type: Schema.Types.ObjectId,
       ref: 'DrumPad',
     },
   ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
   // Outros campos que você desejar adicionar, como descrição, proprietário, etc.
 })
 

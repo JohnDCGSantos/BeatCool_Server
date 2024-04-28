@@ -9,6 +9,11 @@ const beatMakerSchema = new Schema({
       ref: 'DrumPad',
     },
   ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
 })
 
 const BeatMaker = model('BeatMaker', beatMakerSchema)

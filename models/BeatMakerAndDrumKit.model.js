@@ -19,6 +19,12 @@ const BeatMakerAndDrumKitSchema = new Schema({
       ref: 'BeatMaker',
     },
   ],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  
   // Outros campos que você desejar adicionar, como descrição, proprietário, etc.
 })
 

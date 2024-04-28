@@ -6,8 +6,8 @@ const BeatMakerAndDrumKit = require('../models/BeatMakerAndDrumKit.model')
 // Create BeatMakerAndDrumKit
 router.post('/', async (req, res) => {
   try {
-    const { name, drumKits, beatMakers } = req.body
-    const newBeatMakerAndDrumKit = await BeatMakerAndDrumKit.create({ name, drumKits, beatMakers })
+    const { name, drumKits, beatMakers, user } = req.body
+    const newBeatMakerAndDrumKit = await BeatMakerAndDrumKit.create({ name, drumKits, beatMakers, user })
     res.status(201).json(newBeatMakerAndDrumKit)
   } catch (error) {
     console.error('Error creating BeatMakerAndDrumKit:', error)

@@ -18,7 +18,8 @@ require('./config')(app)
 // 👇 Start handling routes here
 const indexRoutes = require('./routes/index.routes')
 app.use('/api', indexRoutes)
-
+const authRoutes = require('./routes/auth.routes')
+app.use('/auth', authRoutes)
 const padRoutes = require('./routes/drum.routes')
 app.use('/pads', padRoutes)
 const soundRoutes = require('./routes/sounds.routes')
