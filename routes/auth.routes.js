@@ -18,10 +18,16 @@ router.post('/signup', async(req,res,next)=>{
     try {
         await User.create({email:payload.email, username:payload.userName, password:passwordHash})
         res.status(201).json({message: 'User Created'})
+         
+
+        
     } catch (error) {
         console.log(error)
+        if(error.code===11000){
+            res.status(403).json({errorMessage:'email alredy in use'})
+        }else{
         res.status(500).json(error)
-        
+        }
     }
 })
 router.post('/login', async(req,res,next)=>{
