@@ -27,7 +27,7 @@ async function populateDrumPads(folderPath, processedSounds = new Set()) {
         const genre = path.basename(path.dirname(path.dirname(filePath))) // Two levels up for genre
         const category = path.basename(path.dirname(filePath)) // One level up for category
         const name = path.basename(filePath, path.extname(filePath))
-        const soundUrl = `http://localhost:5005/sounds/${genre}/${category}/${name}.wav`
+        const soundUrl = `https://beatcool.netlify.app/sounds/${genre}/${category}/${name}.wav`
 
         drumPads.push({ name, soundUrl, genre, category })
       }
@@ -63,7 +63,7 @@ async function filterAndSaveUniqueDrumPads() {
 }
 
 const importPads = async () => {
-  const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/BeatCoolServer'
+  const MONGO_URI = 'mongodb+srv://beatcool-main-db-037ca5614e1:ettzdaVpJSvFD2SbB7ZmWb9a7q12bY@prod-us-central1-3.yr9so.mongodb.net/beatcool-main-db-037ca5614e1'
 
   try {
     await mongoose.connect(MONGO_URI)
