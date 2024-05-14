@@ -27,7 +27,7 @@ async function populateDrumPads(folderPath, processedSounds = new Set()) {
         const genre = path.basename(path.dirname(path.dirname(filePath))) // Two levels up for genre
         const category = path.basename(path.dirname(filePath)) // One level up for category
         const name = path.basename(filePath, path.extname(filePath))
-        const soundUrl = `https://beatcool.netlify.app/sounds/${genre}/${category}/${name}.wav`
+        const soundUrl = `https://beatcool.adaptable.app/sounds/${genre}/${category}/${name}.wav`
 
         drumPads.push({ name, soundUrl, genre, category })
       }
