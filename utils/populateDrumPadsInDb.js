@@ -30,9 +30,9 @@ async function populateDrumPads(folderPath, processedSounds = new Set()) {
         const encodedGenre = encodeURIComponent(genre);
         const encodedCategory = encodeURIComponent(category);
         const encodedName = encodeURIComponent(name);
-        const soundUrl = `https://beatcool.adaptable.app/sounds/${encodedGenre}/${encodedCategory}/${encodedName}.wav`;
+      //  const soundUrl = `https://beatcool.adaptable.app/sounds/${encodedGenre}/${encodedCategory}/${encodedName}.wav`;
         
-     // const soundUrl =`http://localhost:5005/sounds/${encodedGenre}/${encodedCategory}/${encodedName}.wav`;
+      const soundUrl =`http://localhost:5005/sounds/${encodedGenre}/${encodedCategory}/${encodedName}.wav`;
         console.log(`Generated sound URL: ${soundUrl}`); // Logging the generated URL
         drumPads.push({ name, soundUrl, genre, category });
       }
@@ -68,8 +68,8 @@ async function filterAndSaveUniqueDrumPads() {
 }
 
 const importPads = async () => {
-  //const MONGO_URI = 'mongodb://localhost:27017/BeatCoolServer'
-  const MONGO_URI ='mongodb+srv://beatcool-main-db-037ca5614e1:ettzdaVpJSvFD2SbB7ZmWb9a7q12bY@prod-us-central1-3.yr9so.mongodb.net/beatcool-main-db-037ca5614e1';
+ const MONGO_URI = 'mongodb://localhost:27017/BeatCoolServer'
+   //const MONGO_URI ='mongodb+srv://beatcool-main-db-037ca5614e1:ettzdaVpJSvFD2SbB7ZmWb9a7q12bY@prod-us-central1-3.yr9so.mongodb.net/beatcool-main-db-037ca5614e1';
 
   try {
     await mongoose.connect(MONGO_URI);
